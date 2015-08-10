@@ -7,7 +7,7 @@ IMAGES = \
 	base-erlang_18.0 \
 	elixir-dev_1.0.5 \
 	elixir-phoenix-dev_0.1.0 \
-	edip-tool_0.3.0
+	edip-tool_0.4.0
 
 repo_name  = asaaki/$(subst _,:,$(1))
 dockerfile = dockerfiles/$(subst _,/,$(1))

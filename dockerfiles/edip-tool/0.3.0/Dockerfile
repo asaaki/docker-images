@@ -1,6 +1,8 @@
 FROM asaaki/elixir-phoenix-dev:0.1.0
 MAINTAINER Christoph Grabo <asaaki@mannaz.cc>
 
+RUN apk --update add openssh
+
 WORKDIR /build
 COPY . /build
 

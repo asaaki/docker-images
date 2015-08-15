@@ -1,4 +1,4 @@
-FROM asaaki/base-dev:0.1.0
+FROM asaaki/base-dev:0.1.1
 MAINTAINER Christoph Grabo <asaaki@mannaz.cc>
 
 RUN apk --update add \

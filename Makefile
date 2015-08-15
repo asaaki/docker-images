@@ -3,11 +3,11 @@ DOCKER = $(shell which docker)
 # Format: <image name> + "_" + <version>
 IMAGES = \
 	base-alpine_3.2 \
-	base-dev_0.1.0 \
+	base-dev_0.1.1 \
 	base-erlang_18.0 \
 	elixir-dev_1.0.5 \
 	elixir-phoenix-dev_0.1.0 \
-	edip-tool_0.4.0
+	edip-tool_0.4.2
 
 repo_name  = asaaki/$(subst _,:,$(1))
 dockerfile = dockerfiles/$(subst _,/,$(1))
@@ -21,4 +21,15 @@ $(IMAGES): %:
 		$(DOCKER) build --rm -t $(call repo_name,$@) .
 	@echo
 
-.PHONY: all build
+### Dev Helpers
+
+remove: remove-containers remove-untagged-images
+
+remove-containers:
+	-docker rm `docker ps -a -q`
+
+remove-untagged-images:
+	-docker rmi `docker images | awk '$$2 ~ /none/ {print $$3}'`
+
+
+.PHONY: all build remove remove-containers remove-untagged-images

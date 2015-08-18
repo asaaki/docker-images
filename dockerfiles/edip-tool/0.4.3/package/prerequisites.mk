@@ -22,5 +22,5 @@ copy-ssh-keys: $(SSH_KEYS_DEST)
 $(SSH_KEYS_DEST):
 	if [ -d $(SSH_KEYS_SRC) ]; then \
 		mkdir $(SSH_KEYS_DEST) && \
-		rsync -av $(SSH_KEYS_SRC)/ $(SSH_KEYS_DEST); \
+		rsync -av --no-owner $(SSH_KEYS_SRC)/ $(SSH_KEYS_DEST); \
 	fi

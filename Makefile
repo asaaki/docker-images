@@ -4,10 +4,10 @@ DOCKER = $(shell which docker)
 IMAGES = \
 	base-alpine_3.2 \
 	base-dev_0.1.1 \
-	base-erlang_18.0 \
-	elixir-dev_1.0.5 \
-	elixir-phoenix-dev_0.1.0 \
-	edip-tool_0.4.2
+	base-erlang_18.1 \
+	elixir-dev_1.1.1 \
+	elixir-phoenix-dev_0.1.1 \
+	edip-tool_0.4.4
 
 repo_name  = asaaki/$(subst _,:,$(1))
 dockerfile = dockerfiles/$(subst _,/,$(1))

@@ -31,5 +31,9 @@ remove-containers:
 remove-untagged-images:
 	-docker rmi `docker images | awk '$$2 ~ /none/ {print $$3}'`
 
+remove-images:
+	-for image in $(IMAGES); do \
+		docker rmi asaaki/$$(echo $$image | sed -e "s/_/:/g"); \
+	done
 
 .PHONY: all build remove remove-containers remove-untagged-images
